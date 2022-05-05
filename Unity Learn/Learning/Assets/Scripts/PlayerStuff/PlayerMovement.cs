@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     //This is all universally declared, anything within the script can refer to these
     Rigidbody rb;
     float moveSpeed = 5f; // [SerializeField] = easily editable inputs within unity
-    [SerializeField] float jumpForce = 5f;
+    public float jumpForce = 5f;
     public float currentMoveSpeed;
     public float SprintSpeed = 1f;
     public bool LevelUp = false;

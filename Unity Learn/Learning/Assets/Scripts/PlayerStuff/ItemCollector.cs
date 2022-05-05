@@ -5,28 +5,31 @@ using UnityEngine.UI;
 
 public class ItemCollector : MonoBehaviour
 {
-    int Coins = 0;
-    [SerializeField] Text CoinsText;
+    int CoinCount = 0;
     bool Collected = false;
 
-    
+
+
 
     private void OnTriggerEnter(Collider Other)
     {
-        if (Other.gameObject.CompareTag ("Coin") && Collected != true) // checks if collided game object has name player
+        if (Other.gameObject.CompareTag("Coin") && Collected != true) // checks if collided game object has name player
         {
             Collected = true;
+
+            CoinCount++;
+            EventManager.OnCoinsCollected?.Invoke(CoinCount);   // ? = checks if not null
+
             Destroy(Other.gameObject);
-            Debug.Log("Collect xp");
             GetComponent<LevelUp>().XpGain = true;
-            Invoke(nameof(CoinUI),0.01f);
+
+            Invoke(nameof(CoinDestroy), 0.01f);
         }
     }
 
-    void CoinUI()
+    void CoinDestroy()
     {
-        Coins = Coins + 1;
-        CoinsText.text = "Coins: " + Coins;
+
         Collected = false;
     }
 }

@@ -7,7 +7,7 @@ public class WaypointMovement : MonoBehaviour
     [SerializeField] GameObject[] waypoints; // Array of waypoints
     int currentWayPointIndex = 0; // What waypoint moving towards
 
-    [SerializeField] float speed = 1f; // speed of platform
+    public float speed = 1f; // speed of platform
 
     void Update()
     {

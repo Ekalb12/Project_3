@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UiManager : MonoBehaviour
+public class CoinManager : MonoBehaviour
 {
     public Text CoinCounttxt;
 
@@ -22,5 +22,5 @@ public class UiManager : MonoBehaviour
         Debug.Log("Collect xp");
         
     }
-    
+
 }
